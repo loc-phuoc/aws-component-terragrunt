@@ -6,27 +6,53 @@ This repository provides a structured approach to managing AWS infrastructure us
 
 ```
 .
-├── terraform
-│   ├── ec2
-│   │   ├── main.tf
-│   │   ├── output.tf
-│   │   └── variable.tf
-│   └── network
-└── terragrunt
-    ├── _component
-    │   ├── ec2.hcl
-    │   └── network.hcl
-    ├── _env
-    │   ├── dev_config.yaml
-    │   └── prod_config.yaml
-    ├── dev
-    │   ├── ec2
+├── terraform/                  # Terraform modules for AWS components
+│   ├── apigateway/             # API Gateway resources
+│   ├── cloudformation/         # CloudFormation templates
+│   ├── cloudfront/             # Content delivery network
+│   ├── cloudtrail/             # AWS API activity tracking
+│   ├── cloudwatch/             # Monitoring and logging
+│   ├── codepipeline/           # CI/CD pipeline
+│   ├── dynamodb/               # NoSQL database
+│   ├── ec2/                    # EC2 instances
+│   ├── ecr/                    # Elastic Container Registry
+│   ├── ecs/                    # Elastic Container Service
+│   ├── eks/                    # Kubernetes service
+│   ├── elasticache/            # In-memory caching
+│   ├── elb/                    # Load balancing
+│   ├── eventbridge/            # Event bus service
+│   ├── ga/                     # Global Accelerator
+│   ├── iam/                    # Identity and Access Management
+│   ├── lambda/                 # Serverless functions
+│   ├── network/                # VPC and networking
+│   ├── r53/                    # Route 53 DNS
+│   ├── rds/                    # Relational Database Service
+│   ├── s3/                     # Object storage
+│   ├── ses/                    # Simple Email Service
+│   ├── sns/                    # Notification service
+│   ├── sqs/                    # Message queuing
+│   ├── ssm/                    # Systems Manager
+│   └── waf/                    # Web Application Firewall
+└── terragrunt/                 # Terragrunt configuration
+    ├── _component/             # Component-specific configurations
+    │   ├── ec2.hcl             # EC2 component configuration
+    │   └── network.hcl         # Network component configuration
+    ├── _env/                   # Environment-specific variables
+    │   ├── dev_config.yaml     # Development environment config
+    │   └── prod_config.yaml    # Production environment config
+    ├── dev/                    # Development environment
+    │   ├── ec2/                # EC2 component in dev
     │   │   └── terragrunt.hcl
-    │   ├── network
+    │   ├── network/            # Network component in dev
     │   │   └── terragrunt.hcl
     │   └── .terraform-version
-    ├── prod
-    └── root.hcl
+    ├── prod/                   # Production environment
+    │   ├── ec2/                # EC2 component in prod
+    │   │   └── terragrunt.hcl
+    │   ├── network/            # Network component in prod
+    │   │   └── terragrunt.hcl
+    │   └── .terraform-version
+    └── root.hcl                # Root Terragrunt configuration
 ```
 
 ## Features
@@ -37,8 +63,11 @@ This repository provides a structured approach to managing AWS infrastructure us
 - **Remote State Management**: Automated S3 backend configuration
 - **Environment-Specific Variables**: YAML configuration files for each environment
 - **Dependency Management**: Handle dependencies between components (EC2 depends on network)
+- **Comprehensive AWS Coverage**: Structure for provisioning all major AWS services
 
 ## Components
+
+Implemented Components
 
 ### Network Module
 
@@ -54,6 +83,20 @@ This repository provides a structured approach to managing AWS infrastructure us
 - Security group configuration
 - Elastic IP assignment
 - Customizable instance types and counts per environment
+
+Available AWS Service Modules (Structure Ready)
+
+This repository includes module structure for all major AWS services:
+
+- **Compute**: EC2, Lambda, ECS, EKS, ECR
+- **Storage**: S3, EBS (via EC2)
+- **Database**: RDS, DynamoDB, ElastiCache
+- **Networking**: VPC, Route 53, ELB, Global Accelerator
+- **Security**: IAM, WAF, CloudTrail
+- **Integration**: EventBridge, SNS, SQS, SES
+- **Monitoring**: CloudWatch, SSM
+- **Application Services**: API Gateway, CloudFront
+- **Developer Tools**: CodePipeline, CloudFormation
 
 ## Prerequisites
 
