@@ -67,9 +67,9 @@ This repository provides a structured approach to managing AWS infrastructure us
 
 ## Components
 
-Implemented Components
+### Implemented Components
 
-### Network Module
+#### Network Module
 
 - VPC creation
 - Public and private subnets
@@ -77,14 +77,14 @@ Implemented Components
 - NAT Gateway (conditionally deployed)
 - Route tables
 
-### EC2 Module
+#### EC2 Module
 
 - Instance deployment
 - Security group configuration
 - Elastic IP assignment
 - Customizable instance types and counts per environment
 
-Available AWS Service Modules (Structure Ready)
+### Available AWS Service Modules (Structure Ready)
 
 This repository includes module structure for all major AWS services:
 
