@@ -12,9 +12,6 @@ This repository provides a structured approach to managing AWS infrastructure us
 │   │   ├── output.tf
 │   │   └── variable.tf
 │   └── network
-│       ├── main.tf
-│       ├── output.tf
-│       └── variable.tf
 └── terragrunt
     ├── _component
     │   ├── ec2.hcl
@@ -29,11 +26,6 @@ This repository provides a structured approach to managing AWS infrastructure us
     │   │   └── terragrunt.hcl
     │   └── .terraform-version
     ├── prod
-    │   ├── ec2
-    │   │   └── terragrunt.hcl
-    │   ├── network
-    │   │   └── terragrunt.hcl
-    │   └── .terraform-version
     └── root.hcl
 ```
 
